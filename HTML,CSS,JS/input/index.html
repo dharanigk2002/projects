@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input field</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background-color: blueviolet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+        }
+        .form .input-group {
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            position: relative;
+        }
+        .input-group input {
+            line-height: 2.5rem;
+            font-size: 1.5rem;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #FFF;
+            padding: .25em .5em;
+            color: #FFF;
+            background: transparent;
+            transition: border .25s ease-in-out;
+        }
+        .input-group input:focus {
+            border: 1px solid #000;
+        }
+        .input-group label {
+            position: absolute;
+            top: 50%;
+            left: .5em;
+            padding: 0 5px;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #FFF;
+            transition: all .25s ease-in-out;
+            pointer-events: none;
+            background-color: blueviolet;
+            z-index: 1;
+        }
+        .input-group input:focus~label,
+        .input-group input:valid~label{
+            font-size: .95rem;
+            top: .15rem;
+            color: #000;
+        }
+        @media screen and (max-width: 320px) {
+            .input-group {
+                max-width: 95%;
+                margin: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form autocomplete="off" class="form">
+        <div class="input-group">
+            <input type="text" id="username" required />
+            <label for="username">Username</label>
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" required/>
+            <label for="password">Password</label>
+        </div>
+    </form>
+</body>
+</html>

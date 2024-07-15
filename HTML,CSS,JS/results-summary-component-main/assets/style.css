@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --light-red: rgb(255, 87, 87);
+    --orange-yellow: hsl(39, 100%, 56%);
+    --green-teal: hsl(166, 100%, 37%);
+    --cobalt-blue: hsl(234, 85%, 45%);
+    --light-slate-blue: hsl(252, 100%, 67%);
+    --light-royal-blue: hsl(241, 81%, 54%);
+    --violet-blue: hsla(256, 72%, 46%, 1);
+    --persian-blue: hsla(241, 72%, 46%, 0);
+    --white: hsl(0, 0%, 100%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Hanken Grotesk", sans-serif;
+}
+
+body {
+    font-size: 18px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pale-blue);
+}
+
+.card {
+    display: flex;
+    box-shadow: 0 3px 15px rgba(210, 206, 206, 0.551);
+    border-radius: 1.85rem;
+    background-color: var(--white);
+    max-width: 45%;
+}
+
+.card .result {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light-slate-blue);
+    border-radius: 1.85rem;
+    padding: 1.85rem;
+}
+
+.result .title {
+    color: var(--light-lavender);
+    font-size: 1.25rem;
+}
+
+.result .score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 8rem;
+    background-image: linear-gradient(to bottom, var(--light-royal-blue), var(--light-slate-blue));
+    margin: 1.5rem 0;
+}
+
+.score b {
+    font-size: 3.5rem;
+    color: var(--white);
+}
+
+.score p {
+    font-size: .85rem;
+    color: var(--light-lavender);
+}
+
+.result h2 {
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.result>p {
+    text-align: center;
+    padding: 0 1rem;
+    color: var(--light-lavender);
+}
+
+.summary {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+}
+
+.summary .rows {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+}
+
+.rows .badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .65rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.badge .badge-title {
+    display: flex;
+    align-items: center;
+    b {
+        margin-left: 15px;
+    }
+}
+
+.badge:nth-child(1) {
+    color: var(--light-red);
+    background-color: rgba(255, 87, 87, 0.15);
+}
+
+.badge:nth-child(2) {
+    color: var(--orange-yellow);
+    background-color: rgba(255, 177, 31, 0.15);
+}
+
+.badge:nth-child(3) {
+    color: var(--green-teal);
+    background-color: hsla(166, 100%, 37%, 0.15);
+}
+
+.badge:nth-child(4) {
+    color: var(--cobalt-blue);
+    background-color: hsla(234, 85%, 45%, .15);
+}
+
+.badge p {
+    color: black;
+    .outof {
+        color: grey;
+    }
+}
+
+.continue-btn {
+    padding: .75rem;
+    font-size: 1.05rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--dark-gray-blue);
+    border-radius: 2rem;
+}
+
+.continue-btn:hover {
+    background-color: var(--light-royal-blue);
+    transition: .6s;
+}
+
+@media all and (max-width: 658px) {
+    body {
+        align-items: start;
+        background-color: var(--white);
+    }
+    .card {
+        flex-direction: column;
+        box-shadow: none;
+    }
+    .card .result {
+        width: 100%;
+        border-radius: 0 0 2rem 2rem;
+    }
+    .summary {
+        width: 100%;
+    }
+}
