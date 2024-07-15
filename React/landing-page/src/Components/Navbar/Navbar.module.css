@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+    color: #FFF;
+}
+
+.navbar .logo {
+    cursor: pointer;
+}
+
+.navbar .menuItems li {
+    list-style: none;
+    display: inline-block;
+    padding: 10px 38px;
+    cursor: pointer;
+}
+
+.menuItems li.active {
+    border-radius: .75rem;
+    background-color: #FFF;
+    color: #262626;
+}
