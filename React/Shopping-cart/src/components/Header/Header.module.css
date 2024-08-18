@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.header h1 {
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.header .navbar {
+    list-style: none;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 120px;
+    align-items: center;
+    background-color: black;
+    color: #FFF;
+}

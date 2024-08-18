@@ -1,0 +1,37 @@
+.product {
+  border: 1px solid;
+  border-radius: 7px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.productContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productContent img {
+  display: block;
+  max-width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+}
+
+.productDesc h4 {
+  font-size: 0.85rem;
+  word-wrap: wrap;
+}
+
+.productDesc p {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.product button {
+  padding: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
