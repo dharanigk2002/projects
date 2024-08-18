@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #15151A;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timeline {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.container {
+    width: 50%;
+    padding: 20px 35px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: movedown 1s linear forwards;
+}
+
+@keyframes movedown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.container:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.container:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.container:nth-child(4) {
+    animation-delay: 3s;
+}
+
+.container:nth-child(5) {
+    animation-delay: 4s;
+}
+
+.container:nth-child(6) {
+    animation-delay: 5s;
+}
+
+.text-box {
+    border-radius: 10px;
+    background-color: #FFF;
+    position: relative;
+    padding: 15px;
+}
+
+.container:nth-of-type(even) {
+    left: 50%;
+
+    img {
+        left: -20px;
+    }
+}
+
+.container img {
+    position: absolute;
+    top: 32px;
+    right: -20px;
+    width: 40px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    top: 0;
+    right: 50%;
+    background: linear-gradient(135deg, #0c61e2, #A8EB12);
+    z-index: -1;
+    animation: moveline 6s linear forwards;
+}
+
+.arrow-right {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #FFF;
+}
+
+.arrow-left {
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #FFF;
+}
+
+@keyframes moveline {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}

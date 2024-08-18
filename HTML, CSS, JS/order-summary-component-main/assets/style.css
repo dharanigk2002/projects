@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --pale-blue: hsl(225, 100%, 94%);
+    --bright-blue: hsl(245, 75%, 52%);
+    --very-paleblue: hsl(225, 100%, 98%);
+    --desaturated-blue: hsl(224, 23%, 55%);
+    --dark-blue: hsl(223, 47%, 23%);
+    --padding: 7%;
+    --white: #FFF;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Red Hat Display", sans-serif;
+    min-height: 100vh;
+    background-image: url(images/pattern-background-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: var(--pale-blue);
+    position: relative;
+}
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    background-color: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.text-content {
+    text-align: center;
+    padding: var(--padding);
+}
+
+.title {
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--desaturated-blue);
+    margin: 20px 0;
+}
+
+.plan-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--very-paleblue);
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.plan-box .plan-box-left {
+    display: flex;
+    align-items: center;
+}
+
+.plan-box-left div {
+    text-align: left;
+    margin-left: 1rem;
+    p {
+        color: var(--desaturated-blue);
+    }
+    h5 {
+        color: var(--dark-blue);
+    }
+}
+
+.plan-box a:hover {
+    text-decoration: none;
+}
+
+.plan-box-left a {
+    color: var(--bright-blue);
+}
+
+button {
+    display: block;
+    width: 100%;
+    font-family: "Red Hat Display";
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin-top: .95rem;
+    cursor: pointer;
+    background-color: inherit;
+    font-weight: 700;
+}
+
+.proceed-payment {
+    background-color: var(--bright-blue);
+    color: var(--white);
+    box-shadow: 2px 7px 10px 5px rgb(208, 205, 205);
+}
+
+.cancel {
+    color: var(--desaturated-blue);
+}
+
+.proceed-payment:hover {
+    opacity: .5;
+    transition-duration: .25s;
+}
+
+.cancel:hover {
+    background-color: none;
+    color: black;
+}
+
+@media all and (max-width: 600px) {
+    body {
+        background-image: none;
+    }
+}

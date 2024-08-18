@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    min-height: 40vh;
+    /* background-color: #222; */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 2.5rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.logo h1 span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul li {
+    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: inherit;
+        padding-bottom: 20px;
+    }
+}
+
+.has-submenu a::after {
+    content: '>';
+    position: absolute;
+    margin-left: 5px;
+}
+
+.has-submenu ul {
+    display: none;
+    position: absolute;
+    margin-top: 20px;
+    background-color: #000;
+    color: #FFF;
+    width: 18%;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+    transform: translateX(-1rem);
+    li {
+        margin: 0;
+        padding: .5rem 1.5em;
+        border-radius: .5rem;
+        transition: all .25s ease-in-out;
+    }
+
+    li:hover {
+        background-color: #FFF;
+        color: #000;
+        padding: .5rem 1.75rem;
+    }
+
+    li+li {
+        margin-top: .85rem;
+    }
+}
+
+.has-submenu:hover ul{
+    display: block;
+}
+
+.has-submenu:hover a::after {
+    transform: rotate(90deg);
+}
+
+ul li+li {
+    margin-left: 2.5rem;
+}
+
+button {
+    font-size: 1.25rem;
+    height: 2.5em;
+    width: 7.5em;
+    border: none;
+    outline: none;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: border .25s ease-in-out, background-color .25s ease-in-out, color .25s ease-in-out;
+}
+
+button:hover {
+    border: 1px solid #8E1A8E;
+    background-color: transparent;
+    color: #8E1A8E;
+}

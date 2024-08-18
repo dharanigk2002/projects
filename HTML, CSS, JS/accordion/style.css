@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: aliceblue;
+}
+
+.accordion {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto 30px;
+}
+
+.content {
+    list-style: none;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: 6px 6px 10px 2px rgba(0, 0, 0, 0.06),
+                -6px -6px 10px -2px rgba(255, 255, 255, 0.851);
+    margin-bottom: 20px;
+    
+}
+
+.content input {
+    display: none;
+}
+
+.content label {
+    position: relative;
+    user-select: none;
+    display: block;
+    padding: 0 20px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.content .description {
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s ease-in-out;
+}
+
+input:checked ~ .description{
+    margin-top: 10px;
+    max-height: 80px;
+}
+
+label::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+}
+
+input:checked + label::before {
+    content: '-';
+}

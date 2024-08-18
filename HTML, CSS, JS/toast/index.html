@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast notification</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rosybrown;
+            min-height: 100%;
+        }
+
+        .buttons {
+            margin: 50px;
+        }
+
+        .buttons button {
+            margin: 10px;
+            font-size: 1.5rem;
+            padding: .5em 1em;
+            border: none;
+            outline: none;
+            background-color: #000;
+            color: #FFF;
+            border-radius: 5px;
+            transition: opacity .25s ease-in-out;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: .65;
+        }
+
+        .toast-notification {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            flex-direction: column;
+            overflow: hidden;
+            margin: 0 20px 20px;
+        }
+
+        .toast {
+            position: relative;
+            width: 350px;
+            height: 100px;
+            background-color: #DFF;
+            border-radius: 10px;
+            font-size: 1.25rem;
+            padding: 20px;
+            margin-top: 10px;
+            transform: translateX(100%);
+            box-shadow: 10px 10px rgba(0, 0, 0, .5);
+            overflow: hidden;
+            animation: moveLeft .5s ease-in-out forwards;
+        }
+
+        .toast::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            animation: anim 5s linear forwards;
+        }
+
+        .toast.success::after {
+            background-color: green;
+        }
+
+        .toast.alert::after {
+            background-color: orange;
+        }
+
+        .toast.danger::after {
+            background-color: red;
+        }
+
+        @keyframes anim {
+            to {
+                width: 0;
+            }
+        }
+
+        @keyframes moveLeft {
+            to {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="buttons">
+        <button onclick=showToast(successMsg)>Success</button>
+        <button onclick=showToast(alertMsg)>Alert</button>
+        <button onclick=showToast(dangerMsg)>Danger</button>
+    </div>
+    <div class="toast-notification"></div>
+    <script>
+        const successMsg = "Login successful";
+        const alertMsg = "Check credentials";
+        const dangerMsg = "Login failed";
+        const toastNotification = document.querySelector('.toast-notification');
+
+        function showToast(msg) {
+            const toastMessage = document.createElement('div');
+            toastMessage.classList.add("toast");
+            if (msg.includes('success'))
+                toastMessage.className += " success";
+            else if (msg.includes('cred'))
+                toastMessage.className += " alert";
+            else if(msg.includes('fail'))
+                toastMessage.className += " danger";
+            toastMessage.textContent = msg;
+            toastNotification.appendChild(toastMessage);
+            setTimeout(() => {
+                toastNotification.removeChild(toastMessage);
+            }, 5000)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typewriter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background-color: #010718;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .typing .text {
+            position: relative;
+            font-size: 2.5rem;
+            color: #4070F4;
+        }
+        .text.first-text {
+            color: #CCC;
+        }
+        .text.sec-text::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #010718;
+            border-left: 3px solid #4070F4;
+            animation: animate 4s steps(12) infinite;
+        }
+        @keyframes animate {
+            40%, 60% {
+                left: 100%;
+            }
+            100% {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="typing">
+        <span class="text first-text">I'm a</span>
+        <span class="text sec-text"></span>
+    </div>
+    <script>
+        const tags = ["Developer", "Freelancer", "Designer"]
+        const secondText = document.querySelector(".sec-text");
+        let tag = 0;
+        const textLoad = () => {
+            secondText.textContent = tags[tag++];
+            setInterval(() => {
+                secondText.textContent = tags[tag++ % tags.length];
+            }, 4000)
+        }
+        textLoad();
+    </script>
+</body>
+</html>

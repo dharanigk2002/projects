@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    --font1: Outfit;
+    --font2: Young Serif;
+    --white: hsl(0, 0%, 100%);
+    --rose-white: hsl(330, 100%, 98%);
+    --eggshell: hsl(30, 54%, 90%);
+    --light-grey: hsl(30, 18%, 87%);
+    --wenge-brown: hsl(30, 10%, 34%);
+    --dark-charcoal: hsl(24, 5%, 18%);
+    --nutmeg: hsl(14, 45%, 36%);
+    --dark-raspberry: hsl(332, 51%, 32%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font1);
+    min-height: 100vh;
+    background-color: var(--rose-white);
+}
+
+.container {
+    max-width: 750px;
+    background-color: var(--white);
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+}
+
+.container img {
+    max-width: 100%;
+    border-radius: 1.5rem;
+}
+
+header h1 {
+    font-size: 2.75rem;
+    margin-top: 1.25rem;
+    color: var(--dark-charcoal);
+}
+
+h1,h2 {
+    font-family: var(--font2);
+}
+
+h2 {
+    color: var(--nutmeg);
+}
+
+p {
+    font-size: 1.05rem;
+    margin: 1.25rem 0;
+}
+
+.banner{
+    padding: 1.25rem;
+    border-radius: 1.5rem;
+    background-color: var(--rose-white);
+}
+
+.banner h3 {
+    color: var(--dark-raspberry);
+}
+
+.ingredients, .instructions {
+    margin: 1.5rem 0;
+}
+
+
+ul, ol {
+    padding: 0 1.5rem;
+}
+
+ul li, ol li {
+    padding-left: 1.25rem;
+    padding-top: 1rem;
+    color: var(--dark-charcoal);
+}
+
+li::marker{
+    color: var(--dark-raspberry);
+}
+
+.nutrition-table{
+    margin-top: 1.5rem;
+}
+
+.nutrition-table .item {
+    display: flex;
+    padding: 1rem 1.85rem;
+}
+
+.item .item-name {
+    width: min(525px, 20rem);
+}
+
+.item .item-amount {
+    font-weight: bold;
+    color: var(--dark-raspberry);
+}
+
+.item+.item {
+    border-top: 1px solid var(--light-grey);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media all and (max-width: 525px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+    }
+}

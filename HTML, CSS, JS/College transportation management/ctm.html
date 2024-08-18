@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College transportation management</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-image:url("https://nmcauditingcollege.com/wp-content/uploads/2019/03/transport-e1554783292276.png");
+        }
+        input{
+            caret-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <div class="h3 text-dark text-center card-header" style="text-transform:uppercase;">VCET college transportation management</div>
+                    <div class="card-body">
+                        <form action="insert.php" method="POST" autocomplete="off" onsubmit="return chk()"  novalidate>
+                            <div class="form-group">
+                                <label for="regno"><b>Register number:</b></label>
+                                <input type="number" value="9131201040" onblur="document.getElementById('a2').innerHTML=''" class="form-control my-2" required id="regno">
+                                <small id="a2" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="fname"><b>Full name:</b></label>
+                                <input type="text" id="name" class="form-control my-2" onblur="document.getElementById('a1').innerHTML=''" maxlength="30" required placeholder="Enter full name" id="fname">
+                                <small id="a1" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                <div class="col-md-6">
+                                <label for="mno"><b>Mobile number 1:</b></label>
+                                <input type="number" maxlength="10" class="form-control my-2" onblur="document.getElementById('a3').innerHTML=''" placeholder="7558118257" id="mno" maxlength="10" required>
+                                <small id="a3" class="text-danger"></small>
+                            </div>
+                                <div class="col-md-6">
+                                    <label for="mno2"><b>Mobile number 2:</b></label>
+                                    <input type="number" class="form-control my-2" onblur="document.getElementById('a3').innerHTML=''" maxlength="10" placeholder="7558118257" id="mno2">
+                                </div>
+                            </div></div>
+                            <div class="form-group">
+                                <label for="dob"><b>Date of birth:</b></label>
+                                <input type="date" id="dob" onblur="document.getElementById('a5').innerHTML=''" class="form-control my-2" required>
+                                <small id="a5" class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label for="board"><b>Boarding point:</b></label>
+                                <input type="text" id="board" onblur="document.getElementById('a5').innerHTML=''" placeholder="Enter boarding point" class="form-control my-2" required>
+                                <small id="a6" class="text-danger"></small>
+                            </div>
+                            <div class="card-footer mt-3">
+                                <input type="submit" title="Fill in the form before submitting" value="SUBMIT" class="btn btn-outline-success btn-lg btn-block">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script>
+        let name=document.getElementById('name'),dob=document.getElementById('dob');
+        let regno=document.getElementById('regno'),mno1=document.getElementById('mno'),mno2=document.getElementById('mno2');
+        let alpha=/^[A-Za-z]+$/;
+        var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        function chk(){
+            if(regno.value<913120104000){
+                 document.getElementById('a2').innerHTML="*Invalid registration number";
+                 regno.value="9131201040";
+                 return false;
+            }
+            if(!alpha.test(name.value) || name.value==""){
+                document.getElementById('a1').innerHTML="*Invalid name";
+                name.value="";
+                return false;
+            }
+            if(mno1.value=="" && mno2.value==""){
+                document.getElementById('a3').innerHTML="*Enter mobile number 1 or 2";
+                return false;
+            }
+            else if((!mno1.value.match(phoneno) && !mno2.value.match(phoneno)) || (mno1.value.match(phoneno) && !mno2.value.match(phoneno)) && (!mno1.value.match(phoneno) || mno2.value.match(phoneno))){
+                document.getElementById('a3').innerHTML="*Enter valid mobile number";
+                return false;
+            }
+            if(dob.value==""){
+                document.getElementById('a5').innerHTML="*Enter date of birth";
+                return false;
+            }
+            else if((new Date().getFullYear()-new Date(dob.value).getFullYear())<18){
+                document.getElementById('a5').innerHTML="*Invalid date of birth";
+                return false;
+            }
+            if(document.getElementById('board').value==""){
+                document.getElementById('a6').innerHTML="*Enter boarding point";
+                return false;
+            }
+        }
+        
+    </script>
+</body>
+</html>
