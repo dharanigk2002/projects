@@ -1,0 +1,148 @@
+import java.util.*;
+
+class Sort {
+	private int[] arr;
+	private int n=0;
+
+	public Sort(int[] arr) {
+		this.arr=arr;
+		n=arr.length;
+	}
+
+	public void bubbleSort() {
+		for(int i=0; i<n; i++) {
+			boolean swapped=false;
+			for(int j=1; j<n-i; j++)
+				if(arr[j]<arr[j-1]) {
+					swapped=true;
+					swap(j,j-1);
+				}
+			if(!swapped)
+				break;
+		}
+		printAll();
+	}
+
+	private void swap(int i,int j) {
+		arr[i]=(arr[i]+arr[j])-(arr[j]=arr[i]);
+	}
+
+	public void insertionSort() {
+		for(int i=1; i<n; i++) {
+			int temp=arr[i],j;
+			for(j=i; j>0 && arr[j-1]>temp; j--)
+				arr[j]=arr[j-1];
+			arr[j]=temp;
+		}
+		printAll();
+	}
+	
+	public void findDuplicate() {
+	    int i=0;
+	    while(i<n) {
+	        int correct=arr[i]-1;
+	        if(arr[i]<n && arr[i]!=arr[correct])
+	            swap(i,correct);
+	        else
+	            i++;
+	    }
+	    for(i=0;i<n;i++)
+	        if(arr[i]!=i+1) {
+	            System.out.println(arr[i]);
+	            break;
+	        }
+	}
+	
+	public void printAll() {
+	    System.out.println(Arrays.toString(arr));
+	}
+	
+	public void cyclicSort() {
+	    // Only if elements in array are from 1 to n
+	    
+	    for(int i=0;i<n;i++) {
+	        int index=arr[i]-1;
+	        if(arr[index]!=arr[i])
+	            swap(index,i);
+	    }
+	    printAll();
+	}
+	
+	public void mergeSort() {
+	    mergeSort(0,arr.length);
+	    printAll();
+	}
+	
+	private void mergeSort(int s,int e) {
+	    if(e-s==1)
+	        return;
+	    int mid=(e+s)/2;
+	    mergeSort(s,mid);
+	    mergeSort(mid,e);
+	    merge(s,mid,e);
+	    
+	}
+	
+	private void merge(int s,int m,int e) {
+	    int i=s,j=m,k=0;
+	    int[] temp=new int[e-s];
+	    while(i<m && j<e) {
+	        if(arr[i]<arr[j])
+	            temp[k++]=arr[i++];
+	        else
+	            temp[k++]=arr[j++];
+	    }
+	    while(i<m)
+	        temp[k++]=arr[i++];
+	    while(j<e)
+	        temp[k++]=arr[j++];
+	    for(int l=s;l<e;l++)
+	        arr[l]=temp[l-s];
+	}
+	
+	public void quickSort() {
+	    quickSort(0,n-1);
+	    printAll();
+	}
+	
+	private void quickSort(int l,int hi) {
+	    if(hi<=l)
+	        return;
+	    int s=l,e=hi,mid=(l+hi)/2;
+	    int pivot=arr[mid];
+	    while(s<=e) {
+	        while(pivot>arr[s])
+	            s++;
+	        while(pivot<arr[e])
+	            e--;
+	        if(s<=e) {
+	            swap(s,e);
+	            s++;
+	            e--;
+	        }
+	    }
+	    quickSort(l,e);
+	    quickSort(s,hi);
+	}
+
+	public void selectionSort() {
+		for(int i=0; i<n-1; i++) {
+			int min=i;
+			for(int j=i+1; j<n; j++)
+				if(arr[min]>arr[j])
+					min=j;
+			if(min!=i)
+				swap(min,i);
+		}
+		printAll();
+	}
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr=new int[] {3,1,2,4,32,23,11};
+		Sort sort=new Sort(arr);
+		sort.quickSort();
+	}
+}
